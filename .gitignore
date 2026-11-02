@@ -1,0 +1,18 @@
+# Betriebssystem
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+
+# Node (falls später Tools wie Prettier genutzt werden)
+node_modules/
+npm-debug.log*
+
+# Build- und Export-Reste
+dist/
+*.zip
+*.log
