@@ -1,0 +1,160 @@
+/* ---------- Schriften (lokal eingebunden, SIL Open Font License) ---------- */
+@font-face {
+  font-family: 'Palanquin';
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/palanquin-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Palanquin';
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/palanquin-latin-500-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Palanquin';
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/palanquin-latin-600-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Palanquin';
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/palanquin-latin-700-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Palanquin Dark';
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/palanquin-dark-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Palanquin Dark';
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/palanquin-dark-latin-700-normal.woff2') format('woff2');
+}
+
+/* ---------- Design-Tokens (aus der Figma-Vorlage) ---------- */
+:root {
+  --color-orange: #e76c1f;
+  --color-cream: #fdeadc;
+  --color-peach: #facaac;
+  --color-sand: #e7c3ad;
+  --color-charcoal: #363534;
+  --color-grey: #726d6d;
+  --color-white: #ffffff;
+
+  --font-main: 'Palanquin', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-brand: 'Palanquin Dark', 'Palanquin', system-ui, sans-serif;
+
+  --content-max: 1440px;
+  --page-gutter: 16px;
+  --card-gutter: 20px;
+  --bottom-bar-height: 78px;
+  --radius-card: 12px;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  -webkit-text-size-adjust: 100%;
+}
+
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding-bottom: calc(var(--bottom-bar-height) + env(safe-area-inset-bottom, 0px));
+  background: var(--color-white);
+  color: var(--color-charcoal);
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+/* ---------- Hilfsklassen ---------- */
+.icon {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--color-charcoal);
+  color: var(--color-white);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* ---------- Sichtbarer Tastaturfokus ---------- */
+:focus-visible {
+  outline: 3px solid var(--color-charcoal);
+  outline-offset: 2px;
+}
+
+.site-header :focus-visible,
+.site-footer :focus-visible,
+.bottom-bar :focus-visible,
+.basket :focus-visible,
+.confirmation :focus-visible,
+.category__banner :focus-visible {
+  outline-color: var(--color-cream);
+}

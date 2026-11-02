@@ -1,0 +1,154 @@
+/* ---------- Menü-Bereich ---------- */
+.menu-layout {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: 76px var(--card-gutter) 0;
+}
+
+/* ---------- Kategorie-Banner (orange Band über die volle Breite) ---------- */
+.category {
+  margin-top: 76px;
+}
+
+.category:first-child {
+  margin-top: 0;
+}
+
+.category__banner {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  color: var(--color-white);
+}
+
+.category__banner::before {
+  content: '';
+  position: absolute;
+  inset: 0 -100vmax;
+  z-index: -1;
+  background: var(--color-orange);
+}
+
+.category__icon {
+  position: absolute;
+  top: -44px;
+  left: 50%;
+  width: auto;
+  height: 60px;
+  transform: translateX(-50%);
+}
+
+.category__title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.category__extension {
+  display: none;
+}
+
+.category__note {
+  font-weight: 400;
+}
+
+.category__dishes {
+  display: grid;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+/* ---------- Gericht-Karte ---------- */
+.dish {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  border-radius: var(--radius-card);
+  background: var(--color-cream);
+  transition: box-shadow 0.2s;
+}
+
+.dish:hover {
+  box-shadow: 1px 3px 8px rgb(0 0 0 / 0.25);
+}
+
+.dish__image {
+  width: 100%;
+  height: clamp(86px, 23vw, 150px);
+  border-radius: var(--radius-card);
+  object-fit: cover;
+}
+
+.dish__content {
+  display: grid;
+  flex: 1;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'name name'
+    'description description'
+    'price button';
+  grid-template-rows: auto 1fr auto;
+  column-gap: 16px;
+  min-width: 0;
+  padding: 0 8px;
+}
+
+.dish__name {
+  grid-area: name;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.dish__description {
+  grid-area: description;
+  margin-top: 4px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.dish__price {
+  grid-area: price;
+  align-self: center;
+  padding: 8px 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  margin-top: 8px;
+}
+
+/* ---------- "Add to basket"-Button (Default / Hover / Added laut Figma) ---------- */
+.add-button {
+  grid-area: button;
+  align-self: center;
+  justify-self: end;
+  min-height: 30px;
+  margin-top: 8px;
+  padding: 5px 8px;
+  border: 0;
+  border-radius: 20px;
+  background: var(--color-white);
+  color: var(--color-charcoal);
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition:
+    color 0.15s,
+    box-shadow 0.15s;
+}
+
+.add-button:hover {
+  color: var(--color-orange);
+  box-shadow: 2px 4px 6px rgb(0 0 0 / 0.25);
+}
+
+.add-button--added,
+.add-button--added:hover {
+  background: transparent;
+  box-shadow: none;
+  color: var(--color-orange);
+}

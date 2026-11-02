@@ -1,0 +1,378 @@
+/* ---------- Warenkorb (gemeinsam für Desktop-Spalte und Dialog) ---------- */
+.basket-column {
+  display: none;
+}
+
+body.is-order-confirmed .basket-column {
+  visibility: hidden;
+}
+
+.basket {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 90dvh;
+  padding: 38px 21px 41px 22px;
+  border-radius: 30px 30px 0 0;
+  background: var(--color-charcoal);
+  color: var(--color-cream);
+}
+
+.basket__title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.basket__title:focus {
+  outline: none;
+}
+
+.basket__items {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+  margin: 0 -13px 0 0;
+  padding: 0 7px 0 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  list-style: none;
+  scrollbar-color: var(--color-sand) transparent;
+  scrollbar-width: thin;
+}
+
+.basket__items::-webkit-scrollbar {
+  width: 6px;
+}
+
+.basket__items::-webkit-scrollbar-thumb {
+  border-radius: 30px;
+  background: var(--color-sand);
+}
+
+.basket-item {
+  display: grid;
+  flex: none;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 20px;
+  background: var(--color-cream);
+  color: var(--color-charcoal);
+}
+
+.basket-item__name {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.basket-item__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.basket-item__price {
+  font-size: 22px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ---------- Mengen-Steuerung: Mülleimer (bei 1) bzw. "-", Zahl, "+" ---------- */
+.quantity {
+  display: flex;
+  align-items: center;
+}
+
+.quantity__value {
+  min-width: 18px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+}
+
+.quantity__button {
+  display: grid;
+  place-items: center;
+  min-width: 28px;
+  height: 26px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-charcoal);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.quantity__button .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.quantity__button:hover {
+  color: var(--color-orange);
+}
+
+/* ---------- Summen + Bestell-Button ---------- */
+.basket__footer {
+  display: grid;
+  gap: 24px;
+}
+
+.basket__summary {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0 10px;
+  color: var(--color-white);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.basket__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.basket__row dd {
+  margin: 0;
+}
+
+.basket__row--total {
+  margin-top: 10px;
+  padding-top: 12px;
+  border-top: 3px solid var(--color-white);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.buy-button {
+  justify-self: center;
+  width: 100%;
+  max-width: 320px;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 60px;
+  background: var(--color-orange);
+  color: #fbfbfb;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  transition:
+    background-color 0.15s,
+    transform 0.1s;
+}
+
+.buy-button:hover {
+  background: #c85a12;
+}
+
+.buy-button:active {
+  transform: scale(0.97);
+}
+
+/* ---------- Leerer Warenkorb ---------- */
+.basket__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  padding-top: 8px;
+}
+
+.basket__empty-text {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.basket__empty-icon {
+  width: 120px;
+  height: 120px;
+}
+
+/* ---------- Mobile Navigationsleiste ---------- */
+.bottom-bar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: calc(var(--bottom-bar-height) + env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: var(--color-charcoal);
+  color: var(--color-white);
+}
+
+.bottom-bar__item {
+  display: grid;
+  place-items: center;
+  min-width: 56px;
+  min-height: 56px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+}
+
+.bottom-bar__item[aria-disabled='true'] {
+  cursor: default;
+}
+
+.bottom-bar__icon {
+  position: relative;
+  display: grid;
+}
+
+.bottom-bar__item.has-items .icon {
+  color: var(--color-orange);
+}
+
+.bottom-bar__badge {
+  position: absolute;
+  top: -6px;
+  right: -9px;
+  display: grid;
+  place-items: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 3px;
+  border-radius: 8px;
+  background: var(--color-cream);
+  color: var(--color-orange);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.bottom-bar__badge[hidden] {
+  display: none;
+}
+
+/* ---------- Dialoge (mobiler Warenkorb + Bestätigung) ---------- */
+.dialog {
+  max-width: 100%;
+  max-height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-cream);
+  overflow: visible;
+}
+
+.dialog::backdrop {
+  background: rgb(69 68 68 / 0.4);
+}
+
+.dialog__close {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-cream);
+}
+
+.basket-dialog {
+  width: min(100%, 520px);
+  margin: auto auto 0;
+}
+
+.basket-dialog .dialog__close {
+  top: 13px;
+  right: 13px;
+}
+
+.basket-dialog[open] {
+  animation: slide-up 0.25s ease-out;
+}
+
+/* ---------- Bestätigung "Order confirmed!" (340x255 mobil / 415x269 Desktop) ---------- */
+.confirmation {
+  position: fixed;
+  width: min(340px, calc(100% - 32px));
+  padding: 74px 16px 36px;
+  border-radius: 30px;
+  background: var(--color-charcoal);
+  text-align: center;
+}
+
+.confirmation .dialog__close {
+  top: 24px;
+  right: 24px;
+  width: 32px;
+  height: 32px;
+}
+
+.confirmation .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.confirmation[open] {
+  animation: pop-in 0.25s ease-out;
+}
+
+.confirmation.is-closing {
+  animation: fade-out 0.3s ease-in forwards;
+}
+
+.confirmation__image {
+  width: 80px;
+  height: 57px;
+  margin: 0 auto 16px;
+  object-fit: contain;
+  transform: scaleX(-1);
+}
+
+.confirmation__title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.confirmation__text {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}

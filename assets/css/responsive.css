@@ -1,0 +1,287 @@
+/* =====================================================================
+   Alle Breakpoints an einer Stelle
+   Standard (ohne Media Query) = Mobile-Layout, ab 1025px = Desktop-Layout
+   ===================================================================== */
+
+/* ---------- Kleine Smartphones (bis 360px, z. B. 320px) ---------- */
+@media (max-width: 360px) {
+  :root {
+    --page-gutter: 12px;
+    --card-gutter: 12px;
+  }
+
+  .restaurant__name {
+    font-size: 36px;
+  }
+
+  .restaurant__tagline {
+    font-size: 20px;
+  }
+
+  .category__title {
+    font-size: 28px;
+  }
+
+  .dish__name,
+  .dish__price {
+    font-size: 22px;
+  }
+
+  .basket-item__name,
+  .basket-item__price {
+    font-size: 20px;
+  }
+
+  .confirmation__title {
+    font-size: 32px;
+  }
+}
+
+/* ---------- Tablets: Karten in zwei Spalten ---------- */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .category__dishes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+}
+
+/* ---------- Touch-Geräte: größere Tippflächen ---------- */
+@media (pointer: coarse) {
+  .add-button {
+    min-height: 40px;
+  }
+
+  .quantity__button {
+    min-width: 40px;
+    height: 40px;
+  }
+}
+
+/* ---------- Desktop (ab 1025px) ---------- */
+@media (min-width: 1025px) {
+  body {
+    padding-bottom: 0;
+  }
+
+  .bottom-bar {
+    display: none;
+  }
+
+  /* Header: 128px hoch, Logo bei 119px, Menü-Icon rechts */
+  .site-header__inner {
+    height: 128px;
+    padding-inline: clamp(24px, 8.26vw, 119px) clamp(24px, 2.8vw, 40px);
+  }
+
+  .brand__logo {
+    display: block;
+  }
+
+  .brand__mobile {
+    display: none;
+  }
+
+  .header-menu-button {
+    display: flex;
+  }
+
+  /* Hero: im Figma 508px hoch, die oberen 69px liegen unter dem Header (sichtbar: 440px) */
+  .restaurant__hero {
+    margin: 0 auto;
+  }
+
+  .restaurant__image {
+    height: 440px;
+    border-radius: 0;
+    object-position: 50% 56.7%;
+  }
+
+  .restaurant__logo {
+    bottom: -65px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .restaurant__info {
+    padding-top: 87px;
+  }
+
+  .restaurant__headline {
+    flex-direction: row;
+    gap: 26px;
+  }
+
+  .restaurant__name {
+    font-size: 48px;
+  }
+
+  .restaurant__tagline {
+    margin-top: 16px;
+    font-size: 24px;
+  }
+
+  /* Zweispaltiges Menü: Gerichte links (713px), Warenkorb rechts (435px) */
+  .menu-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 713px) clamp(340px, 30vw, 435px);
+    align-items: start;
+    justify-content: space-between;
+    padding: 80px 0 0 clamp(24px, 8.26vw, 119px);
+  }
+
+  .category {
+    margin-top: 64px;
+  }
+
+  .category__banner {
+    justify-content: flex-start;
+    padding-left: 164px;
+  }
+
+  .category__icon {
+    top: calc(-1 * var(--icon-offset, 28px));
+    left: 48px;
+    height: 91px;
+    transform: none;
+  }
+
+  .category__title {
+    font-size: 40px;
+  }
+
+  .category__extension {
+    display: inline;
+  }
+
+  /* Gericht-Karte als Zeile: Bild 207x121, Name/Preis oben, Button unten rechts */
+  .dish {
+    flex-direction: row;
+    gap: 15px;
+    min-height: 141px;
+  }
+
+  .dish__image {
+    flex: none;
+    width: 207px;
+    height: 121px;
+  }
+
+  .dish__content {
+    grid-template-areas:
+      'name price'
+      'description button';
+    grid-template-rows: auto 1fr;
+    padding: 0;
+  }
+
+  .dish__price {
+    align-self: start;
+    justify-self: end;
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .dish__description {
+    margin-top: 8px;
+  }
+
+  .add-button {
+    align-self: end;
+    margin-top: 0;
+  }
+
+  /* Warenkorb: 435x794, klebt oben, Liste scrollt intern */
+  .basket-column {
+    position: sticky;
+    top: 24px;
+    z-index: 5;
+    display: block;
+    align-self: start;
+  }
+
+  .basket {
+    gap: 36px;
+    height: 794px;
+    max-height: calc(100dvh - 48px);
+    padding: 59px 24px 59px 31px;
+    border-radius: 30px 0 0 30px;
+  }
+
+  .basket__items {
+    margin-right: -24px;
+    padding-right: 18px;
+  }
+
+  .basket-item {
+    padding: 20px;
+  }
+
+  .basket__footer {
+    gap: 31px;
+  }
+
+  .basket__summary {
+    margin-right: 40px;
+  }
+
+  .buy-button {
+    margin-right: 40px;
+    width: calc(100% - 40px);
+    padding: 13px 24px;
+    font-size: 32px;
+  }
+
+  .basket__empty {
+    padding-right: 40px;
+  }
+
+  /* Bestätigung */
+  .confirmation {
+    width: 415px;
+    padding: 74px 24px 37px;
+  }
+
+  .confirmation .dialog__close {
+    right: 32px;
+  }
+
+  .confirmation__title {
+    font-size: 42px;
+  }
+
+  .confirmation__text {
+    font-size: 29px;
+  }
+
+  /* Footer: 128px hoch, Inhalt unten, Abstand 72px */
+  .site-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 128px;
+    margin-top: 123px;
+  }
+
+  .site-footer__list {
+    flex-direction: row;
+    gap: 72px;
+  }
+
+  .site-footer__copyright {
+    order: 0;
+  }
+}
+
+/* ---------- Weniger Bewegung ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
