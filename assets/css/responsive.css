@@ -126,6 +126,7 @@
     grid-template-columns: minmax(0, 713px) clamp(340px, 30vw, 435px);
     align-items: start;
     justify-content: space-between;
+    column-gap: 24px;
     padding: 80px 0 0 clamp(24px, 8.26vw, 119px);
   }
 
@@ -210,6 +211,7 @@
   .basket__items {
     margin-right: -24px;
     padding-right: 18px;
+    scrollbar-gutter: auto;
   }
 
   .basket-item {
@@ -228,7 +230,8 @@
     margin-right: 40px;
     width: calc(100% - 40px);
     padding: 13px 24px;
-    font-size: 32px;
+    font-size: clamp(24px, 2.35vw, 32px);
+    white-space: nowrap;
   }
 
   .basket__empty {
