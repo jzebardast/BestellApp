@@ -90,12 +90,27 @@ function getBasketItemTemplate(item) {
   const dish = findDish(item.dishId);
   return `
     <li class="basket-item">
-      <p class="basket-item__name">${item.quantity} x ${escapeHtml(dish.name)}</p>
+      <div class="basket-item__top">
+        <p class="basket-item__name">${item.quantity} x ${escapeHtml(dish.name)}</p>
+        ${getCornerRemoveTemplate(item, dish)}
+      </div>
       <div class="basket-item__bottom">
         ${getQuantityControlsTemplate(item, dish)}
         <span class="basket-item__price">${formatPrice(dish.price * item.quantity)}</span>
       </div>
     </li>`;
+}
+
+function getCornerRemoveTemplate(item, dish) {
+  if (item.quantity < 2) return '';
+  const label = `Remove ${dish.name} from basket`;
+  return getQuantityButtonTemplate(
+    'remove',
+    label,
+    getIconTemplate('trash'),
+    dish.id,
+    'quantity__button--corner'
+  );
 }
 
 function getQuantityControlsTemplate(item, dish) {
@@ -115,9 +130,9 @@ function getDecreaseButtonTemplate(item, dish) {
   return getQuantityButtonTemplate('remove', label, getIconTemplate('trash'), dish.id);
 }
 
-function getQuantityButtonTemplate(action, label, content, dishId) {
+function getQuantityButtonTemplate(action, label, content, dishId, extraClass = '') {
   return `
-    <button class="quantity__button" type="button" data-action="${action}"
+    <button class="quantity__button ${extraClass}" type="button" data-action="${action}"
       data-dish-id="${dishId}" aria-label="${escapeHtml(label)}">${content}</button>`;
 }
 
