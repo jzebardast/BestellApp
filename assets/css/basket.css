@@ -12,7 +12,7 @@ body.is-order-confirmed .basket-column {
   flex-direction: column;
   gap: 16px;
   max-height: 90dvh;
-  padding: 38px 21px 41px 22px;
+  padding: 38px 22px 41px;
   border-radius: 30px 30px 0 0;
   background: var(--color-charcoal);
   color: var(--color-cream);
@@ -35,9 +35,10 @@ body.is-order-confirmed .basket-column {
   flex-direction: column;
   gap: 10px;
   min-height: 0;
-  margin: 0 -13px 0 0;
-  padding: 0 7px 0 0;
+  margin: 0;
+  padding: 0;
   overflow-y: auto;
+  scrollbar-gutter: stable both-edges;
   overscroll-behavior: contain;
   list-style: none;
   scrollbar-color: var(--color-sand) transparent;
@@ -63,7 +64,15 @@ body.is-order-confirmed .basket-column {
   color: var(--color-charcoal);
 }
 
+.basket-item__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
 .basket-item__name {
+  min-width: 0;
   font-size: 22px;
   font-weight: 700;
   line-height: 1.2;
@@ -110,6 +119,11 @@ body.is-order-confirmed .basket-column {
   font-weight: 600;
   line-height: 1;
   transition: color 0.15s;
+}
+
+.quantity__button--corner {
+  flex: none;
+  margin: -3px -6px 0 0;
 }
 
 .quantity__button .icon {
@@ -292,9 +306,29 @@ body.is-order-confirmed .basket-column {
   color: var(--color-cream);
 }
 
+.sheet-backdrop {
+  position: fixed;
+  inset: 0 0 var(--bar-total);
+  z-index: 35;
+  background: rgb(69 68 68 / 0.4);
+}
+
+.sheet-backdrop[hidden] {
+  display: none;
+}
+
+/* Mobiler Warenkorb: sitzt über der Navigationsleiste, die immer sichtbar und klickbar bleibt */
 .basket-dialog {
+  position: fixed;
+  inset: auto 0 var(--bar-total);
+  z-index: 36;
   width: min(100%, 520px);
-  margin: auto auto 0;
+  max-height: none;
+  margin: 0 auto;
+}
+
+.basket-dialog .basket {
+  max-height: calc(100dvh - var(--bar-total) - 16px);
 }
 
 .basket-dialog .dialog__close {

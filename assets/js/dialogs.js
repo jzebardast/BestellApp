@@ -2,12 +2,23 @@ let confirmationTimer;
 
 function openBasketDialog() {
   const dialog = document.getElementById('basketDialog');
-  if (!dialog.open) dialog.showModal();
+  if (dialog.open) return;
+  dialog.show();
+  document.getElementById('sheetBackdrop').hidden = false;
+  document.getElementById('openBasketButton').setAttribute('aria-expanded', 'true');
 }
 
 function closeBasketDialog() {
   const dialog = document.getElementById('basketDialog');
-  if (dialog.open) dialog.close();
+  if (!dialog.open) return;
+  dialog.close();
+  document.getElementById('sheetBackdrop').hidden = true;
+  document.getElementById('openBasketButton').setAttribute('aria-expanded', 'false');
+}
+
+function toggleBasketDialog() {
+  const isOpen = document.getElementById('basketDialog').open;
+  isOpen ? closeBasketDialog() : openBasketDialog();
 }
 
 function showConfirmation() {

@@ -58,6 +58,7 @@
   --page-gutter: 16px;
   --card-gutter: 20px;
   --bottom-bar-height: 78px;
+  --bar-total: calc(var(--bottom-bar-height) + env(safe-area-inset-bottom, 0px));
   --radius-card: 12px;
 }
 
@@ -74,7 +75,8 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-html:has(dialog[open]) {
+html:has(dialog[open]),
+html:has(.sheet-backdrop:not([hidden])) {
   overflow: hidden;
 }
 
