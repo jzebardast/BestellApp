@@ -28,14 +28,18 @@ Gehostet auf dem FTP-Server der Developer Akademie (Link in der Projektabgabe).
 ## Projektstruktur
 
 ```
-index.html
+index.html          Hauptseite
+style.css           Haupt-Stylesheet (Design-Tokens, Schriften, Reset)
+script.js           Startpunkt der App (Initialisierung, Events)
 favicon.ico
+css/                weitere Stylesheets: layout · menu · basket · responsive (alle Breakpoints)
+js/                 JavaScript-Module: data · utils · templates · basket · render · dialogs
 assets/
-  css/   base.css (Tokens, Schriften, Reset) · layout.css · menu.css · basket.css · responsive.css (alle Breakpoints)
-  js/    data.js · utils.js · templates.js · basket.js · render.js · dialogs.js · script.js
-  img/   Bilder (fürs Web verkleinert), Icons, Favicon
-  fonts/ Palanquin (lokal, SIL Open Font License)
+  img/              Bilder (fürs Web verkleinert), Icons, Favicon
+  fonts/            Palanquin (lokal, SIL Open Font License)
 ```
+
+`assets/` enthält nur Bilder und Schriften, Code liegt in `css/`, `js/` und im Root.
 
 JavaScript-Konventionen: camelCase, höchstens 14 Zeilen pro Funktion, eine Leerzeile zwischen Funktionen,
 alle HTML-Templates in eigenen Funktionen (`templates.js`).

@@ -3,42 +3,42 @@
   font-family: 'Palanquin';
   font-weight: 400;
   font-display: swap;
-  src: url('../fonts/palanquin-latin-400-normal.woff2') format('woff2');
+  src: url('assets/fonts/palanquin-latin-400-normal.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Palanquin';
   font-weight: 500;
   font-display: swap;
-  src: url('../fonts/palanquin-latin-500-normal.woff2') format('woff2');
+  src: url('assets/fonts/palanquin-latin-500-normal.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Palanquin';
   font-weight: 600;
   font-display: swap;
-  src: url('../fonts/palanquin-latin-600-normal.woff2') format('woff2');
+  src: url('assets/fonts/palanquin-latin-600-normal.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Palanquin';
   font-weight: 700;
   font-display: swap;
-  src: url('../fonts/palanquin-latin-700-normal.woff2') format('woff2');
+  src: url('assets/fonts/palanquin-latin-700-normal.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Palanquin Dark';
   font-weight: 400;
   font-display: swap;
-  src: url('../fonts/palanquin-dark-latin-400-normal.woff2') format('woff2');
+  src: url('assets/fonts/palanquin-dark-latin-400-normal.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Palanquin Dark';
   font-weight: 700;
   font-display: swap;
-  src: url('../fonts/palanquin-dark-latin-700-normal.woff2') format('woff2');
+  src: url('assets/fonts/palanquin-dark-latin-700-normal.woff2') format('woff2');
 }
 
 /* ---------- Design-Tokens (aus der Figma-Vorlage) ---------- */
